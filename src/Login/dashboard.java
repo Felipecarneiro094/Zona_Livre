@@ -29,7 +29,7 @@ public class dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        menu_principal = new javax.swing.JMenuBar();
+        jMenuBar1 = new javax.swing.JMenuBar();
         cadastrar_vagas = new javax.swing.JMenu();
         visualizar_vagas = new javax.swing.JMenu();
         sair_sistema = new javax.swing.JMenu();
@@ -37,10 +37,15 @@ public class dashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cadastrar_vagas.setText("Cadastrar Vagas");
-        menu_principal.add(cadastrar_vagas);
+        cadastrar_vagas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrar_vagasActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(cadastrar_vagas);
 
         visualizar_vagas.setText("Visualizar Vagas");
-        menu_principal.add(visualizar_vagas);
+        jMenuBar1.add(visualizar_vagas);
 
         sair_sistema.setText("Sair");
         sair_sistema.addActionListener(new java.awt.event.ActionListener() {
@@ -48,9 +53,9 @@ public class dashboard extends javax.swing.JFrame {
                 sair_sistemaActionPerformed(evt);
             }
         });
-        menu_principal.add(sair_sistema);
+        jMenuBar1.add(sair_sistema);
 
-        setJMenuBar(menu_principal);
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,15 +65,20 @@ public class dashboard extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void sair_sistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_sistemaActionPerformed
-       dispose();
+        dispose();
     }//GEN-LAST:event_sair_sistemaActionPerformed
+
+    private void cadastrar_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_vagasActionPerformed
+        cadastro_vagas tela = new cadastro_vagas();
+        tela.setVisible(true);
+    }//GEN-LAST:event_cadastrar_vagasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,7 +117,7 @@ public class dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu cadastrar_vagas;
-    private javax.swing.JMenuBar menu_principal;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu sair_sistema;
     private javax.swing.JMenu visualizar_vagas;
     // End of variables declaration//GEN-END:variables
