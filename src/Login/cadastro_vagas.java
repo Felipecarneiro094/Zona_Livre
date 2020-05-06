@@ -35,6 +35,7 @@ public class cadastro_vagas extends javax.swing.JFrame {
         campo_quantidade = new javax.swing.JTextField();
         enviar_cad_vagas = new javax.swing.JButton();
         sair_cad_vagas = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,8 @@ public class cadastro_vagas extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,7 +80,9 @@ public class cadastro_vagas extends javax.swing.JFrame {
                     .addComponent(uso_geral)
                     .addComponent(texto_pagina, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(uso_idoso)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(uso_idoso)
+                            .addComponent(jButton1))
                         .addGap(81, 81, 81)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -108,7 +113,8 @@ public class cadastro_vagas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enviar_cad_vagas)
-                    .addComponent(sair_cad_vagas))
+                    .addComponent(sair_cad_vagas)
+                    .addComponent(jButton1))
                 .addGap(56, 56, 56))
         );
 
@@ -157,6 +163,7 @@ public class cadastro_vagas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campo_quantidade;
     private javax.swing.JButton enviar_cad_vagas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel quantidade;
     private javax.swing.JButton sair_cad_vagas;
     private javax.swing.JLabel texto_pagina;
