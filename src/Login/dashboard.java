@@ -30,19 +30,29 @@ public class dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        cadastrar_vagas = new javax.swing.JMenu();
+        vagas = new javax.swing.JMenu();
+        cad_vagas = new javax.swing.JMenuItem();
         visualizar_vagas = new javax.swing.JMenu();
         sair_sistema = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cadastrar_vagas.setText("Cadastrar Vagas");
-        cadastrar_vagas.addActionListener(new java.awt.event.ActionListener() {
+        vagas.setText("Vagas");
+        vagas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrar_vagasActionPerformed(evt);
+                vagasActionPerformed(evt);
             }
         });
-        jMenuBar1.add(cadastrar_vagas);
+
+        cad_vagas.setText("Cadastrar");
+        cad_vagas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cad_vagasActionPerformed(evt);
+            }
+        });
+        vagas.add(cad_vagas);
+
+        jMenuBar1.add(vagas);
 
         visualizar_vagas.setText("Visualizar Vagas");
         jMenuBar1.add(visualizar_vagas);
@@ -75,10 +85,13 @@ public class dashboard extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_sair_sistemaActionPerformed
 
-    private void cadastrar_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_vagasActionPerformed
-        cadastro_vagas tela = new cadastro_vagas();
-        tela.setVisible(true);
-    }//GEN-LAST:event_cadastrar_vagasActionPerformed
+    private void vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vagasActionPerformed
+        
+    }//GEN-LAST:event_vagasActionPerformed
+
+    private void cad_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cad_vagasActionPerformed
+        new cadastro_vagas().setVisible(true);
+    }//GEN-LAST:event_cad_vagasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,9 +129,10 @@ public class dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu cadastrar_vagas;
+    private javax.swing.JMenuItem cad_vagas;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu sair_sistema;
+    private javax.swing.JMenu vagas;
     private javax.swing.JMenu visualizar_vagas;
     // End of variables declaration//GEN-END:variables
 }
