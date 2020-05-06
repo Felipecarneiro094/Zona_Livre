@@ -38,10 +38,13 @@ public class cadastro_vagas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        uso_geral.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         uso_geral.setText("Vagas de uso geral.");
 
+        uso_idoso.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         uso_idoso.setText("Vagas Idoso.");
 
+        uso_deficiente.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         uso_deficiente.setText("Vagas Deficiente Físico.");
 
         texto_pagina.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
@@ -52,8 +55,10 @@ public class cadastro_vagas extends javax.swing.JFrame {
         quantidade.setText("  Quantidade:");
         quantidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        enviar_cad_vagas.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         enviar_cad_vagas.setText("Cadastrar");
 
+        sair_cad_vagas.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         sair_cad_vagas.setText("Sair");
         sair_cad_vagas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +105,7 @@ public class cadastro_vagas extends javax.swing.JFrame {
                         .addComponent(campo_quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(uso_deficiente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enviar_cad_vagas)
                     .addComponent(sair_cad_vagas))
