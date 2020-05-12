@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Login;
 
-/**
- *
- * @author Felipe Carneiro
- */
+
 public class dashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form dashboard
-     */
     public dashboard() {
         initComponents();
         
@@ -29,68 +19,74 @@ public class dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        vagas = new javax.swing.JMenu();
-        cad_vagas = new javax.swing.JMenuItem();
-        visualizar_vagas = new javax.swing.JMenu();
-        sair_sistema = new javax.swing.JMenu();
+        cad_vagas = new javax.swing.JButton();
+        vis_vagas = new javax.swing.JButton();
+        sair_sistema = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        vagas.setText("Vagas");
-        vagas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vagasActionPerformed(evt);
-            }
-        });
-
-        cad_vagas.setText("Cadastrar");
+        cad_vagas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felipe Carneiro\\Documents\\NetBeansProjects\\Zona_Livre\\src\\imagens\\cadastrar.png")); // NOI18N
+        cad_vagas.setText("Cadastrar Vagas");
         cad_vagas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cad_vagasActionPerformed(evt);
             }
         });
-        vagas.add(cad_vagas);
 
-        jMenuBar1.add(vagas);
+        vis_vagas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felipe Carneiro\\Documents\\NetBeansProjects\\Zona_Livre\\src\\imagens\\visualizar.png")); // NOI18N
+        vis_vagas.setText("Visualizar Vagas");
+        vis_vagas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vis_vagasActionPerformed(evt);
+            }
+        });
 
-        visualizar_vagas.setText("Visualizar Vagas");
-        jMenuBar1.add(visualizar_vagas);
-
+        sair_sistema.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felipe Carneiro\\Documents\\NetBeansProjects\\Zona_Livre\\src\\imagens\\sair_sistema.png")); // NOI18N
         sair_sistema.setText("Sair");
         sair_sistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_sistemaActionPerformed(evt);
             }
         });
-        jMenuBar1.add(sair_sistema);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(cad_vagas, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(vis_vagas, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(sair_sistema, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cad_vagas)
+                    .addComponent(vis_vagas)
+                    .addComponent(sair_sistema))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void vis_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vis_vagasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vis_vagasActionPerformed
+
     private void sair_sistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_sistemaActionPerformed
-        dispose();
+       dispose();
     }//GEN-LAST:event_sair_sistemaActionPerformed
 
-    private void vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vagasActionPerformed
-        
-    }//GEN-LAST:event_vagasActionPerformed
-
     private void cad_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cad_vagasActionPerformed
-        new cadastro_vagas().setVisible(true);
+       cadastro_vagas tela = new cadastro_vagas();
+       tela.setVisible(true);
     }//GEN-LAST:event_cad_vagasActionPerformed
 
     /**
@@ -129,10 +125,8 @@ public class dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem cad_vagas;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu sair_sistema;
-    private javax.swing.JMenu vagas;
-    private javax.swing.JMenu visualizar_vagas;
+    private javax.swing.JButton cad_vagas;
+    private javax.swing.JButton sair_sistema;
+    private javax.swing.JButton vis_vagas;
     // End of variables declaration//GEN-END:variables
 }

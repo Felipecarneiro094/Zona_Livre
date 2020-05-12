@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Login;
+
+import conexao.Conectar;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -11,11 +12,15 @@ package Login;
  */
 public class cadastro_vagas extends javax.swing.JFrame {
 
+    private final Conectar objCon;
+
     /**
      * Creates new form cadastro_vagas
      */
     public cadastro_vagas() {
         initComponents();
+        
+        objCon = new Conectar();
     }
 
     /**
@@ -57,6 +62,11 @@ public class cadastro_vagas extends javax.swing.JFrame {
 
         enviar_cad_vagas.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         enviar_cad_vagas.setText("Cadastrar");
+        enviar_cad_vagas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviar_cad_vagasActionPerformed(evt);
+            }
+        });
 
         sair_cad_vagas.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         sair_cad_vagas.setText("Sair");
@@ -113,11 +123,25 @@ public class cadastro_vagas extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void sair_cad_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_cad_vagasActionPerformed
         dispose();
     }//GEN-LAST:event_sair_cad_vagasActionPerformed
+
+    private void enviar_cad_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_cad_vagasActionPerformed
+        try {
+            objCon.openConnection();
+            String SQL = "INSERT INTO jobs (status, updated_at,created_at) VALUES ('0', '2020/05/09','2020/05/09')";
+            PreparedStatement ps = objCon.con.prepareStatement(SQL);
+            objCon.rs = ps.executeQuery();
+            objCon.rs.next();
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dispose();
+    }//GEN-LAST:event_enviar_cad_vagasActionPerformed
 
     /**
      * @param args the command line arguments
