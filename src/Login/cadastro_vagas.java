@@ -1,12 +1,11 @@
 package Login;
 
 import conexao.Conectar;
-import static java.lang.System.err;
-import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -120,25 +119,31 @@ public class cadastro_vagas extends javax.swing.JFrame {
     }//GEN-LAST:event_sair_cad_vagasActionPerformed
 
     private void enviar_cad_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_cad_vagasActionPerformed
-        if ((campo_quantidade.getText() != null) || (campo_quantidade.getText().trim().equals(""))) {
-            int qnt = Integer.parseInt(campo_quantidade.getText());
-            try {
+        String quantidade = campo_quantidade.getText();
+        
+        // Lança NullPointerException se a quantidade for null
+        Objects.requireNonNull(quantidade);
+                
+        //Aceita apenas numero inteiros positivos
+        if (quantidade.matches("\\d+") && !quantidade.equals("0")) {
+            int qnt = Integer.parseInt(quantidade);
+            for (int x = 0; x < qnt; x++) {
                 objCon.openConnection();
-                String SQL = "INSERT INTO jobs (status, updated_at, created_at) VALUES (?, ?, ?)";
-                PreparedStatement ps = objCon.con.prepareStatement(SQL);
-                ps.setInt(1, 0);
-                ps.setDate(2, Date.valueOf(LocalDate.now()));
-                ps.setDate(3, Date.valueOf(LocalDate.now()));
-                objCon.rs = ps.executeQuery();
-                objCon.rs.next();
-
-            } catch (SQLException ex) {
-                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JOptionPane.showMessageDialog(null, "Quantidade de vagas inválidas!");
-        } else {
+                String SQL = "INSERT INTO jobs (status, updated_at,created_at) VALUES ('0',?,?)";
+                try (PreparedStatement ps = objCon.con.prepareStatement(SQL)) {
+                    ps.setDate(1, Date.valueOf(LocalDate.now()));
+                    ps.setDate(2, Date.valueOf(LocalDate.now()));
+                    ps.executeUpdate();
+                } catch (SQLException ex) {
+                    Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }            
             JOptionPane.showMessageDialog(null, "Vagas cadastradas com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Quantidade de vagas inválidas!");
         }
+        
+        campo_quantidade.setText("");
     }//GEN-LAST:event_enviar_cad_vagasActionPerformed
 
     private void campo_quantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_quantidadeActionPerformed
