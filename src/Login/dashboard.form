@@ -48,9 +48,9 @@
                   <Component id="sair_sistema" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cad_vagas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
               <Component id="jLabel1" pref="327" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="1800" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1578" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

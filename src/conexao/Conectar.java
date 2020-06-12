@@ -10,6 +10,7 @@ public class Conectar {
     public ResultSet rs;
 
     String url = "jdbc:mysql://localhost:3306/zona_livre";
+  //String url = "jdbc:mysql://145.14.145.200/id12284449_dump";
     String user = "root";
     String password = "";
     String driver = "com.mysql.jdbc.Driver";
