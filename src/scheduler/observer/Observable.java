@@ -1,7 +1,6 @@
 package scheduler.observer;
 
 import model.Vagas;
-import scheduler.SingleVagas;
 
 public interface Observable {
     

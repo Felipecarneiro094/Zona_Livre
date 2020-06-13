@@ -1,19 +1,10 @@
 package Login;
-
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import model.Vagas;
-import scheduler.ConsultaVagas;
-import scheduler.SingleVagas;
-import scheduler.observer.Observer;
 
-public class visualizarVagas extends javax.swing.JFrame {
+public class visualizarVagas extends javax.swing.JFrame{
 
     public visualizarVagas() {
-        initComponents();       
-
+        initComponents();
     }
 
     @SuppressWarnings("unchecked")
@@ -30,14 +21,6 @@ public class visualizarVagas extends javax.swing.JFrame {
         campo_total = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         painel_principal.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
         painel_principal.setText("              Vagas do Seu Estacionamento");
@@ -50,14 +33,6 @@ public class visualizarVagas extends javax.swing.JFrame {
 
         total_vagas.setFont(new java.awt.Font("Comic Sans MS", 2, 12)); // NOI18N
         total_vagas.setText("Total de Vagas:");
-
-        label_imagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felipe Carneiro\\Documents\\NetBeansProjects\\Zona_Livre\\src\\imagens\\Zona livre P.png")); // NOI18N
-
-        campo_livres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campo_livresActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,7 +48,7 @@ public class visualizarVagas extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(total_vagas)
                                 .addGap(24, 24, 24)
-                                .addComponent(campo_total, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                                .addComponent(campo_total))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(vagas_ocupadas)
@@ -113,18 +88,6 @@ public class visualizarVagas extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void campo_livresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_livresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo_livresActionPerformed
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        
-    }//GEN-LAST:event_formWindowActivated
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
-    }//GEN-LAST:event_formWindowOpened
 
     //@Override
     public void update(Vagas vagas) {

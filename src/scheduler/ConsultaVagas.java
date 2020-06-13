@@ -1,5 +1,6 @@
 package scheduler;
 
+import Login.dashboard;
 import Login.visualizarVagas;
 import conexao.Conectar;
 import java.sql.PreparedStatement;
@@ -8,18 +9,32 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Vagas;
-import scheduler.observer.Observable;
-import scheduler.observer.impl.ConsultaVagasObservable;
 
 public class ConsultaVagas extends TimerTask {
 
     private final Conectar objCon;
-    
-    public ConsultaVagas(){
+    private final dashboard dashboard;
+
+    public ConsultaVagas(dashboard dashboard) {
         this.objCon = new Conectar();
+        this.dashboard = dashboard;
     }
-    
-    public int countVagasByStatus(String status) throws SQLException{
+
+    public Vagas ConsultaVagas() {
+        int vagasLivres = 0;
+        int vagasOcupadas = 0;
+        
+        try {
+            vagasLivres = countVagasByStatus("0");        
+            vagasOcupadas = countVagasByStatus("1");
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaVagas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return new Vagas(vagasLivres, vagasOcupadas);
+    }
+
+    public int countVagasByStatus(String status) throws SQLException {
         objCon.openConnection();
         String SQL = "select count(*) as vagas from jobs where status = ?";
         PreparedStatement ps = objCon.con.prepareStatement(SQL);
@@ -29,30 +44,9 @@ public class ConsultaVagas extends TimerTask {
         int countVagas = objCon.rs.getInt("vagas");
         return countVagas;
     }
-    
+
     @Override
     public void run() {
-        Vagas vagas = null;
-        
-        try {
-            int vagasLivres = countVagasByStatus("0");
-            //System.out.println(vagasLivres);
-            int vagasOcupadas = countVagasByStatus("1");
-            //System.out.println(vagasOcupadas);            
-            vagas = new Vagas(vagasLivres, vagasOcupadas);
-            
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(ConsultaVagas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        //TODO criar consultas
-        System.out.println(vagas.toString());
-        //Observable observable = new ConsultaVagasObservable();
-        //observable.addObserver(new visualizarVagas());
-        //observable.notifyObservers(vagas.get);
+        dashboard.tela.update(ConsultaVagas());
     }
-    
-    
-    
 }

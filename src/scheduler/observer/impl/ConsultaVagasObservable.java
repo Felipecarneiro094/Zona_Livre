@@ -3,7 +3,6 @@ package scheduler.observer.impl;
 import java.util.HashSet;
 import java.util.Set;
 import model.Vagas;
-import scheduler.SingleVagas;
 import scheduler.observer.Observable;
 import scheduler.observer.Observer;
 
