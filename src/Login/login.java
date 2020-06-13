@@ -3,9 +3,13 @@ package Login;
 import conexao.Conectar;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.util.Timer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.Vagas;
+import scheduler.ConsultaVagas;
+import scheduler.observer.impl.ConsultaVagasObservable;
 
 public class login extends javax.swing.JFrame {
 
@@ -198,6 +202,9 @@ public class login extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        Timer timer = new Timer();
+        timer.schedule(new ConsultaVagas(), 0, 1000);
+                
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

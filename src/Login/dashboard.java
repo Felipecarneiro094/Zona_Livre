@@ -1,10 +1,6 @@
 package Login;
 
 import conexao.Conectar;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class dashboard extends javax.swing.JFrame {
 
@@ -91,16 +87,6 @@ public class dashboard extends javax.swing.JFrame {
     private void vis_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vis_vagasActionPerformed
         visualizarVagas tela = new visualizarVagas();
         tela.setVisible(true);
-        try {
-            objCon.openConnection();
-            String SQL = "select count(status) from jobs where status = '0'";
-            PreparedStatement ps = objCon.con.prepareStatement(SQL);
-            objCon.rs = ps.executeQuery();
-            objCon.rs.next();
-        } catch (SQLException ex) {
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-        }      
-        
     }//GEN-LAST:event_vis_vagasActionPerformed
 
     private void sair_sistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_sistemaActionPerformed

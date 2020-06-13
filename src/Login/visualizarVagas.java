@@ -1,9 +1,19 @@
 package Login;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.Vagas;
+import scheduler.ConsultaVagas;
+import scheduler.SingleVagas;
+import scheduler.observer.Observer;
+
 public class visualizarVagas extends javax.swing.JFrame {
 
     public visualizarVagas() {
-        initComponents();
+        initComponents();       
+
     }
 
     @SuppressWarnings("unchecked")
@@ -20,6 +30,14 @@ public class visualizarVagas extends javax.swing.JFrame {
         campo_total = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         painel_principal.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
         painel_principal.setText("              Vagas do Seu Estacionamento");
@@ -100,7 +118,21 @@ public class visualizarVagas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campo_livresActionPerformed
 
-   
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
+    }//GEN-LAST:event_formWindowActivated
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    //@Override
+    public void update(Vagas vagas) {
+        System.out.println("VAGAS: " + vagas);
+        this.campo_livres.setText(String.valueOf(vagas.getVagasLivres()));
+        this.campo_ocupadas.setText(String.valueOf(vagas.getVagasOcupadas()));
+        this.campo_total.setText(String.valueOf(vagas.getTotal()));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campo_livres;
@@ -112,4 +144,5 @@ public class visualizarVagas extends javax.swing.JFrame {
     private javax.swing.JLabel vagas_livre;
     private javax.swing.JLabel vagas_ocupadas;
     // End of variables declaration//GEN-END:variables
+
 }
