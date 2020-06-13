@@ -9,10 +9,9 @@ public class Conectar {
     public Statement stmt;
     public ResultSet rs;
 
-    String url = "jdbc:mysql://localhost:3306/zona_livre";
-  //String url = "jdbc:mysql://145.14.145.200/id12284449_dump";
-    String user = "root";
-    String password = "";
+    String url = "jdbc:mysql://apitest.seasyc.com.br:3306/u645041787_api";
+    String user = "u645041787_root";
+    String password = "h/>nv6pX";
     String driver = "com.mysql.jdbc.Driver";
 
     public void openConnection() {

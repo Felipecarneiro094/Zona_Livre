@@ -88,7 +88,7 @@ public class dashboard extends javax.swing.JFrame {
     public visualizarVagas tela = new visualizarVagas();
     
     private void vis_vagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vis_vagasActionPerformed
-      
+        
         tela.setVisible(true);
     }//GEN-LAST:event_vis_vagasActionPerformed
 
