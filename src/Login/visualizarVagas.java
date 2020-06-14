@@ -1,10 +1,14 @@
 package Login;
+import javax.swing.ImageIcon;
 import model.Vagas;
 
 public class visualizarVagas extends javax.swing.JFrame{
 
     public visualizarVagas() {
         initComponents();
+        
+        setIcon();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -134,5 +138,10 @@ public class visualizarVagas extends javax.swing.JFrame{
     private javax.swing.JLabel vagas_livre;
     private javax.swing.JLabel vagas_ocupadas;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        ImageIcon icon = new ImageIcon("C:\\Users\\Felipe Carneiro\\Documents\\NetBeansProjects\\Zona_Livre\\src\\imagens\\Logo.png");
+        setIconImage(icon.getImage());
+    }
 
 }

@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class cadastro_vagas extends javax.swing.JFrame {
@@ -18,6 +19,8 @@ public class cadastro_vagas extends javax.swing.JFrame {
         initComponents();
 
         objCon = new Conectar();
+        
+        setIcon();
     }
 
     @SuppressWarnings("unchecked")
@@ -159,4 +162,9 @@ public class cadastro_vagas extends javax.swing.JFrame {
     private javax.swing.JButton sair_cad_vagas;
     private javax.swing.JLabel texto_pagina;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        ImageIcon icon = new ImageIcon("C:\\Users\\Felipe Carneiro\\Documents\\NetBeansProjects\\Zona_Livre\\src\\imagens\\Logo.png");
+        setIconImage(icon.getImage());
+    }
 }

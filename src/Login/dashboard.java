@@ -1,6 +1,7 @@
 package Login;
 
 import conexao.Conectar;
+import javax.swing.ImageIcon;
 
 public class dashboard extends javax.swing.JFrame {
 
@@ -12,6 +13,8 @@ public class dashboard extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
 
         objCon = new Conectar();
+        
+        setIcon();
     }
 
     @SuppressWarnings("unchecked")
@@ -111,4 +114,9 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JButton sair_sistema;
     private javax.swing.JButton vis_vagas;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        ImageIcon icon = new ImageIcon("C:\\Users\\Felipe Carneiro\\Documents\\NetBeansProjects\\Zona_Livre\\src\\imagens\\Logo.png");
+        setIconImage(icon.getImage());
+    }
 }
